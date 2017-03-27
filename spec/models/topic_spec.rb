@@ -33,11 +33,6 @@ RSpec.describe Topic, type: :model do
     expect(topic.save).to be false
   end
 
-  it 'does not save when votes are nil' do
-    topic = build(:topic, votes: nil)
-    expect(topic.save).to be false
-  end
-
   it 'saves with positive, zero, or negative votes' do
     (-5..5).each do |v|
       topic = build(:topic, title: "#{v} votes topic", votes: v)
