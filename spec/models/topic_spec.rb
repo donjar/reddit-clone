@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string           not null
-#  votes      :integer          not null
+#  votes      :integer          default("0"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -43,5 +43,10 @@ RSpec.describe Topic, type: :model do
       topic = build(:topic, title: "#{v} votes topic", votes: v)
       expect(topic.save).to be true
     end
+  end
+
+  it 'has a default value of 0 votes' do
+    topic = create(:topic)
+    expect(topic.votes).to eq 0
   end
 end

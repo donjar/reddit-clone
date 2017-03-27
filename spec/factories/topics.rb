@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string           not null
-#  votes      :integer          not null
+#  votes      :integer          default("0"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,6 +17,5 @@
 FactoryGirl.define do
   factory :topic do
     title 'Just a topic'
-    votes 0
   end
 end
