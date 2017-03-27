@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_170_327_022_727) do
-  create_table 'topics', force: :cascade do |t|
-    t.string   'title',      null: false
-    t.integer  'votes',      null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['title'], name: 'index_topics_on_title', unique: true
-    t.index ['votes'], name: 'index_topics_on_votes'
+ActiveRecord::Schema.define(version: 20170327022727) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.integer  "votes",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_topics_on_title", unique: true, using: :btree
+    t.index ["votes"], name: "index_topics_on_votes", using: :btree
   end
+
 end

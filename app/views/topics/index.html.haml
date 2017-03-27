@@ -1,0 +1,16 @@
+.container
+  %h1 All Topics
+  = link_to 'New Topic', new_topic_path
+  %table.table
+    %thead
+      %th Title
+      %th Votes
+      %th Upvote
+      %th Downvote
+    %tbody
+    - @topics.each do |t|
+      %tr
+        %td= t.title
+        %td= t.votes
+        %td= link_to "Upvote", upvote_topic_path(t), method: :patch
+        %td= link_to "Downvote", downvote_topic_path(t), method: :patch

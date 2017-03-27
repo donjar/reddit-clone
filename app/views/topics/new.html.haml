@@ -1,0 +1,10 @@
+.container
+  %h1 New Topic
+
+  = form_for :topic, url: topics_path, html: { class: 'form-horizontal' } do |f|
+    .form-group
+      = f.label :title, class: 'col-sm-2'
+      .col-sm-4
+        = f.text_field :title, class: 'form-control'
+
+    = f.submit 'Submit', class: 'btn'

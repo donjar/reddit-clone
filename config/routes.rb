@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'topics#index'
+
+  resources :topics, only: [:index, :new, :create] do
+    member do
+      patch 'upvote', to: 'topics#upvote'
+      patch 'downvote', to: 'topics#downvote'
+    end
+  end
 end

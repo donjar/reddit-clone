@@ -17,4 +17,9 @@
 class Topic < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :votes, presence: true
+
+  before_validation do
+    # Set default votes
+    self.votes ||= 0
+  end
 end
