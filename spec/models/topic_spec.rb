@@ -33,6 +33,14 @@ RSpec.describe Topic, type: :model do
     expect(topic.save).to be false
   end
 
+  it 'has a title length of at most 255' do
+    (250..260).each do |l|
+      topic = build(:topic, title: 'i' * l)
+
+      expect(topic.save).to be(l <= 255)
+    end
+  end
+
   it 'saves with positive, zero, or negative votes' do
     (-5..5).each do |v|
       topic = build(:topic, title: "#{v} votes topic", votes: v)

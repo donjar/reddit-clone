@@ -15,7 +15,7 @@
 #
 
 class Topic < ApplicationRecord
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true, uniqueness: true, length: { maximum: 255 }
   validates :votes, presence: true
 
   before_validation do
