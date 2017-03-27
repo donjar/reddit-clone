@@ -1,0 +1,32 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'script/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - '**/Gemfile'
+    - 'vendor/**/*'
+
+# Rails
+
+Rails:
+  Enabled: true
+
+# Style
+
+Style/Documentation:
+  Enabled: false
+
+# Metrics
+
+Metrics/ClassLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
